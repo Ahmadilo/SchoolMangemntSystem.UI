@@ -1,0 +1,169 @@
+/* Reset بسيط */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    color: #333;
+  }
+
+  /* شريط المهام */
+  nav {
+    background: #007bff;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 20px;
+    height: 50px;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 0;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #ffdd57;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #ffdd57;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after {
+    width: 100%;
+    left: 0;
+    right: auto;
+  }
+
+  /* محتوى الصفحة */
+  .container {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  /* بطاقة الترحيب الكبيرة */
+  .welcome-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin-bottom: 40px;
+  }
+  .welcome-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  }
+  .welcome-card h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #007bff;
+  }
+  .welcome-card p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.5;
+  }
+  .welcome-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -30%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, #007bff55, transparent 70%);
+    animation: pulse 6s ease-in-out infinite;
+    z-index: 0;
+  }
+  .welcome-card * {
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.9;
+    }
+  }
+
+  /* شبكة البطاقات الصغيرة */
+  .cards-grid {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .small-card {
+    background: white;
+    flex: 1 1 250px;
+    max-width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 25px 20px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .small-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+  .small-card h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  .small-card p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.4;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    nav {
+      justify-content: center;
+    }
+    nav a {
+      margin-left: 15px;
+      font-size: 14px;
+    }
+    .welcome-card h1 {
+      font-size: 2rem;
+    }
+    .welcome-card p {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+    .cards-grid {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .small-card {
+      max-width: 100%;
+    }
+  }
