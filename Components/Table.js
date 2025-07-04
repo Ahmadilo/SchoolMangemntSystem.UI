@@ -70,10 +70,10 @@ export class TableComponent {
      * @returns {void}
      */
   renderError(error) {
-    this.parent.innerHTML = `
-      <div class="table-card"><h2>حدث خطأ أثناء جلب البيانات.</h2>
-      <p style="color: red;">${error.message}</p></div>
-    `;
+  
+    console.error("Error rendering error message:", error.message);
+    return;
+      
   }
 
   /**
@@ -117,6 +117,7 @@ export class TableComponent {
       tbody.appendChild(tr);
     });
 
+    //debugger;
     table.appendChild(tbody);
     card.appendChild(table);
     this.parent.appendChild(card);

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../test.test.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="crud-container">
+  <div class="flip-card">
+    <div class="flip-inner">
+
+      <!-- وجه الجدول -->
+      <div id="Table-Face" class="crud-table-face flip-face">
+        <div class="face-header">
+          <h2>إدارة الأشخاص</h2>
+          <button class="btn add-btn">➕ إضافة</button>
+        </div>
+        <div id="Table"></div>
+      </div>
+
+      <!-- وجه الفورم -->
+      <div class="crud-form-face flip-face">
+        <div class="face-header">
+          <h2>إضافة شخص</h2>
+          <button class="btn back-btn">⬅ رجوع</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <script type="module" src="test.js"></script> -->
+<script type="module">
+    import { FormComponent } from '../Components/FormComponent.js';
+    import { TableComponent } from '../Components/Table.js';
+
+    const from = new FormComponent({
+        title: 'نموذج جديد',
+        fields: [
+            { labelText: 'الاسم', id: 'name', name: 'name', type: 'text', required: true },
+            { labelText: 'البريد الإلكتروني', id: 'email', name: 'email', type: 'email', required: true },
+            { labelText: 'كلمة المرور', id: 'password', name: 'password', type: 'password', required: true },
+        ],
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const addBtn = document.querySelector('.add-btn');
+        const backBtn = document.querySelector('.back-btn');
+        const flipCard = document.querySelector('.flip-card');
+        const tableContainer = document.getElementById('Table');
+
+        console.log(addBtn.constructor.name);
+        
+        addBtn.addEventListener('click', () => {
+            flipCard.classList.add('flipped');
+        });
+        
+        backBtn.addEventListener('click', () => {
+            flipCard.classList.remove('flipped');
+        });
+        
+        const table = new TableComponent(tableContainer, "");
+        
+    });
+
+    const formContainer = document.querySelector('.crud-form-face');
+
+    //console.log(tableContainer.constructor.name);
+    //debugger;
+
+    //console.log(table);
+
+
+    formContainer.appendChild(from.render());
+    //tableContainer.appendChild(table.render());
+</script>
+
+</body>
+</html>

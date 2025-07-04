@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../test.test.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="module">
+        import { CrudContainerComponent } from '../Components/CrudContainerComponent.js';
+
+        // Create an instance of the CrudContainerComponent
+        const crudContainer = new CrudContainerComponent({
+            title: 'إدارة الأشخاص',
+            fields: [
+                { labelText: 'الاسم', id: 'name', name: 'name', type: 'text', required: true },
+                { labelText: 'البريد الإلكتروني', id: 'email', name: 'email', type: 'email', required: true },
+                { labelText: 'كلمة المرور', id: 'password', name: 'password', type: 'password', required: true },
+            ],
+            apiUrl: 'https://api.example.com/people'
+        });
+
+        // Append the component to the app div
+        document.getElementById('app').appendChild(crudContainer.render());
+    </script>
+</body>
+</html>

@@ -169,13 +169,108 @@
   }
 
   /* بطاقة الجدول */
+/* ===================== */
+/* مكونات رئيسية - Main Layout */
+/* ===================== */
+
+.crud-container {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: auto;
+  perspective: 1500px;
+}
+
+.flip-card {
+  width: 100%;
+  position: relative;
+  height: auto;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  transition: transform 2s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  position: absolute;
+  width: 100%;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+}
+
+.crud-table-face {
+  z-index: 2;
+}
+
+.crud-form-face {
+  transform: rotateY(180deg);
+}
+
+/* ===================== */
+/* تنسيق الوجه (Header) */
+/* ===================== */
+
+.face-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.face-header h2 {
+  margin: 0;
+  color: #007bff;
+  font-size: 1.8rem;
+}
+
+/* ===================== */
+/* الأزرار العامة */
+/* ===================== */
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn.reset {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* ===================== */
+/* بطاقات الجدول */
+/* ===================== */
+
 .table-card {
   background: white;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   padding: 30px;
-  margin-bottom: 40px;
+  margin: 40px auto;
   overflow-x: auto;
+  max-width: 700px;
 }
 
 .table-card h2 {
@@ -185,7 +280,6 @@
   text-align: center;
 }
 
-/* جدول */
 .table-card table {
   width: 100%;
   border-collapse: collapse;
@@ -208,46 +302,26 @@
   transition: background-color 0.2s ease;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .table-card {
-    padding: 20px 15px;
-  }
+/* ===================== */
+/* تنسيق الفورم */
+/* ===================== */
 
-  .table-card h2 {
-    font-size: 1.4rem;
-  }
-
-  .table-card th,
-  .table-card td {
-    font-size: 14px;
-    padding: 8px;
-  }
-}
-
-/* ضبط تنسيق الحاوية الكاملة */
-.table-card {
-  max-width: 700px; /* تمنع الفورم من تغطية كل الشاشة */
-  margin: 40px auto; /* تجعلها في وسط الصفحة */
-}
-
-/* تنسيق الصف الواحد */
 .form-row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 15px;
   gap: 20px;
 }
 
-/* تنسيق اسم الحقل */
 .form-row label {
   width: 160px;
   font-weight: 600;
   color: #333;
-  flex-shrink: 0; /* لا تصغر التسمية عندما تقل الشاشة */
+  flex-shrink: 0;
+  text-align: right;
 }
 
-/* تنسيق الحقل نفسه */
 .form-row input {
   flex: 1;
   min-width: 200px;
@@ -262,7 +336,6 @@
   outline: none;
 }
 
-/* الأزرار */
 .form-buttons {
   display: flex;
   justify-content: flex-end;
@@ -270,30 +343,42 @@
   margin-top: 25px;
 }
 
-/* الزر حذف */
-.btn.delete {
-  background-color: #dc3545;
-  /* background-color: #6c757d; */
-  color: white;
-}
+/* ===================== */
+/* Responsive */
+/* ===================== */
 
-/* الزر مسح */
-.btn.reset {
-  background-color: #6c757d;
-  /* background-color: #dc3545; */
-  color: white;
-}
+@media (max-width: 600px) {
+  .face-header h2 {
+    font-size: 1.4rem;
+  }
 
-.btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+  .table-card {
+    padding: 20px 15px;
+  }
 
-.btn:hover {
-  opacity: 0.9;
+  .table-card th,
+  .table-card td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-row label {
+    width: auto;
+    text-align: left;
+  }
+
+  .form-row input {
+    width: 100%;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
