@@ -224,3 +224,76 @@
     padding: 8px;
   }
 }
+
+/* ضبط تنسيق الحاوية الكاملة */
+.table-card {
+  max-width: 700px; /* تمنع الفورم من تغطية كل الشاشة */
+  margin: 40px auto; /* تجعلها في وسط الصفحة */
+}
+
+/* تنسيق الصف الواحد */
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 20px;
+}
+
+/* تنسيق اسم الحقل */
+.form-row label {
+  width: 160px;
+  font-weight: 600;
+  color: #333;
+  flex-shrink: 0; /* لا تصغر التسمية عندما تقل الشاشة */
+}
+
+/* تنسيق الحقل نفسه */
+.form-row input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.3s;
+}
+
+.form-row input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* الأزرار */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+/* الزر حذف */
+.btn.delete {
+  background-color: #dc3545;
+  /* background-color: #6c757d; */
+  color: white;
+}
+
+/* الزر مسح */
+.btn.reset {
+  background-color: #6c757d;
+  /* background-color: #dc3545; */
+  color: white;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
