@@ -7,6 +7,7 @@ In Page will Injects the Componeents that Page need into by Script main for All 
 By Object of Entiteis, That Every Entities Have Class In Api Folder.
 Components make Object from Api Class and get data from it.
 ## Pages That Makes
+- [X] Home Page
 - [ ] People Page
 - [ ] Assets Page
 - [ ] Relespish Page
